@@ -27,7 +27,7 @@ const Intro = () => {
           exploring new technologies, and continuously improving my skills.
         </p>
       </div>
-      <div className="w-1/2 ">
+      <div className="w-1/2">
         <img
           src={IntroPhotoBG}
           alt="IntoPoto"

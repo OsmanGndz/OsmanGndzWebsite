@@ -21,10 +21,10 @@ const headerTabs = [
 ];
 
 const Header = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="w-full flex flex-row justify-between items-center">
-      <div className="cursor-pointer" onClick={()=> navigate("/home")}>
+      <div className="cursor-pointer" onClick={() => navigate("/home")}>
         <h1 className="text-blue-500 font-bold text-[28px]">
           Osman
           <span className="text-blue-400 font-semibold">Gndz</span>
@@ -32,7 +32,11 @@ const Header = () => {
       </div>
       <div className="flex flex-row gap-20 font-semibold text-[16px]">
         {headerTabs.map((tab, index) => (
-          <div key={index} className="cursor-pointer" onClick={()=> navigate(tab.link) } >
+          <div
+            key={index}
+            className="cursor-pointer"
+            onClick={() => navigate(tab.link)}
+          >
             {tab.title}
           </div>
         ))}
