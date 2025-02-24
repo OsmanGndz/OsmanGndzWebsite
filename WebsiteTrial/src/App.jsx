@@ -6,10 +6,9 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
-import background from "./assets/Background.svg";
 import "./App.css";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Home from "./components/HomePage/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
@@ -20,8 +19,7 @@ function App() {
   return (
     <Router>
       <div
-        className="w-screen bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(${background})` }} // Doğru kullanım
+        className="w-screen h-full bg-no-repeat bg-cover bg-center"
       >
         <div className="w-full h-16 flex items-center shadow-sm px-44 select-none">
           <Header />
