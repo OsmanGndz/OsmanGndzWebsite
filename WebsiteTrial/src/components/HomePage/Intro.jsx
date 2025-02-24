@@ -6,7 +6,7 @@ const Intro = () => {
   return (
     <div className="w-full flex flex-row pt-8 h-[380px]">
       <div className="w-1/2 flex flex-col gap-6">
-        <h1 className="text-[28px] font-bold text-white bg-green-600 w-fit px-4 py-2 rounded-xl">
+        <h1 className="text-[28px] font-semibold text-white bg-green-600 w-fit px-4 py-2 rounded-xl">
           Hello There!
         </h1>
         <h1 className="text-[28px] font-semibold ">
