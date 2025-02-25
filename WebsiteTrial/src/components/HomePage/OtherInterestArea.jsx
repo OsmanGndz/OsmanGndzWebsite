@@ -93,7 +93,7 @@ const Interests = [
 ];
 const OtherInterestArea = () => {
   return (
-    <div className="w-full flex flex-col items-center pt-16 px-40">
+    <div className="w-full flex flex-col items-center px-40">
       <h1 className="text-[32px] font-bold">
         <span className="bg-green-600 px-4 py-2 text-white rounded-xl">
           My Interesets

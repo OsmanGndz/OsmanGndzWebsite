@@ -3,3 +3,25 @@
 html {
   overflow-x: hidden;
 }
+
+/* Scrollbar genişliği */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Scrollbar arkaplanı */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Scrollbar kaydırma kısmı */
+::-webkit-scrollbar-thumb {
+  background: #b5b5b6;
+  border-radius: 10px;
+}
+
+/* Scrollbar kaydırma kısmına hover efekti */
+::-webkit-scrollbar-thumb:hover {
+  background: #4396e9;
+}
