@@ -17,7 +17,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/OsmanGndzWebsite">
       <div className="w-screen min-h-screen flex flex-col select-none">
         <div className="w-screen h-16 flex items-center shadow-sm px-44 select-none">
           <Header />
