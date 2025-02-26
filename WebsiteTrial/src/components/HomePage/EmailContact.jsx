@@ -1,75 +1,61 @@
 import React, { useState } from "react";
 import ManThinking from "../../assets/ManThinking.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+const contacts = [
+  {
+    address: "osmangunduz517@gmail.com",
+    icon: <FontAwesomeIcon icon={faEnvelope} className="text-[30px]" />,
+    text: "Send an email to me",
+    action: (address) => (window.location.href = `mailto:${address}`),
+  },
+  {
+    address: "https://www.linkedin.com/in/osman-g%C3%BCnd%C3%BCz-2084a521b/",
+    icon: <FontAwesomeIcon icon={faLinkedin} className="text-[30px] " />,
+    text: "Send a message with linkedin",
+    action: (address) => window.open(address, "_blank"),
+  },
+  {
+    address: "https://github.com/OsmanGndz",
+    icon: <FontAwesomeIcon icon={faGithub} className="text-[30px]" />,
+    text: "Contact with Github",
+    action: (address) => window.open(address, "_blank"),
+  },
+];
 
 const EmailContact = () => {
-  const [formData, setFormData] = useState({
-    name_surname: "",
-    mail: "",
-    message: "",
-  });
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    setFormData({
-      name_surname: "",
-      mail: "",
-      message: "",
-    });
-  };
-
   return (
     <div className="flex flex-col w-full">
       <div className="w-full text-center">
         <h1 className="text-[32px] font-bold">
           <span className="bg-gray-500 text-white px-4 py-2 rounded-xl">
-            Text to
+            Contact
           </span>{" "}
-          me
+          with me
         </h1>
       </div>
-      <div className="w-full grid grid-cols-2 pt-8">
-        <form
-          onSubmit={sendEmail}
-          className="w-[90%] pr-8 pt-8 flex flex-col gap-4"
-        >
+      <div className="w-full grid grid-cols-2 pt-8 gap-8">
+        <div className="w-full">
           <h1 className="w-full text-[32px] font-semibold pb-8 text-blue-400">
             Do you need anything?
           </h1>
-          <input
-            type="text"
-            value={formData.name_surname}
-            onChange={(e) =>
-              setFormData({ ...formData, name_surname: e.target.value })
-            }
-            className="w-full h-14 border-1 border-gray-500 rounded-md px-4 hover:border-blue-500 focus:border-blue-400 focus:border-2 outline-none"
-            placeholder="Name-Surname"
-          />
-          <input
-            type="text"
-            value={formData.mail}
-            onChange={(e) => setFormData({ ...formData, mail: e.target.value })}
-            className="w-full h-14 border-1 border-gray-500 rounded-md px-4 hover:border-blue-500 focus:border-blue-400 focus:border-2 outline-none"
-            placeholder="E-mail"
-          />
-          <textarea
-            type="text"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-            className="w-full h-32 border-1 border-gray-500 rounded-md px-4 pt-2 hover:border-blue-500 focus:border-blue-400 focus:border-2 outline-none"
-            placeholder="Message"
-          />
-          <button
-            type="submit"
-            className="flex justify-end bg-blue-500 w-fit ml-auto px-8 py-2 text-white rounded-md text-[20px] font-semibold text-center cursor-pointer"
-          >
-            Send
-          </button>
-        </form>
-        <div className="w-full">
-          <img src={ManThinking} alt="ManThinking" className="w-[90%]"/>
+          <div className="w-full flex flex-col gap-8 text-[24px] font-semibold">
+            {contacts.map((contact, index) => (
+              <div
+                key={index}
+                className="cursor-pointer flex items-center gap-8 hover:text-blue-400"
+                onClick={() => contact.action(contact.address)} // Tıklama olayında yönlendirme
+              >
+                {contact.icon}
+                {contact.text}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-[80%]">
+          <img src={ManThinking} alt="ManThinking" className="w-[90%]" />
         </div>
       </div>
     </div>
