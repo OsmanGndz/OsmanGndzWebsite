@@ -19,19 +19,19 @@ function App() {
   return (
     <Router basename="/OsmanGndzWebsite">
       <div className="w-screen min-h-screen flex flex-col select-none">
-        <div className="w-screen h-16 flex items-center shadow-sm px-4 sm:px-8 md:px-20 lg:px-44 select-none">
+        <div className="w-screen h-16 flex items-center shadow-sm px-4 sm:px-8 lg:px-44 select-none">
           <Header />
         </div>
-        <main className="w-screen h-full flex flex-col flex-grow px-44 pb-16">
+        <main className="w-screen h-full flex flex-col flex-grow px-4 sm:px-8 lg:px-44 pb-16">
           <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <div className="w-screen flex items-center shadow-sm px-44 select-none bg-blue-100 py-6">
+        <div className="w-screen flex items-center shadow-sm px-4 sm:px-8 lg:px-44 select-none bg-blue-100 py-6">
           <Footer />
         </div>
       </div>

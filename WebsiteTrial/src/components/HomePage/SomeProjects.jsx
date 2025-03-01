@@ -22,18 +22,18 @@ const SomeProjects = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full flex flex-col items-center">
-      <h1 className="w-full text-[32px] flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center w-full justify-center font-bold ">
+      <h1 className="w-full text-[24px] lg:text-[32px] flex flex-row items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-center w-full justify-center font-bold pl-8">
           <p className="bg-blue-500 px-4 py-2 text-white rounded-xl">
             My Projects
           </p>{" "}
           <p className="pl-2">in Software</p>
         </div>
-        <div className="w-32 justify-end items-end text-[20px] bg-blue-100 inline-block text-center text-black rounded-xl shadow-md shadow-gray-400 cursor-pointer py-1 hover:scale-103 transform duration-500" onClick={()=> navigate("/projects")}>
+        <div className="w-32 justify-end items-end text-[16px] lg:text-[20px] bg-blue-100 inline-block text-center text-black rounded-xl shadow-md shadow-gray-400 cursor-pointer py-1 hover:scale-103 transform duration-500" onClick={()=> navigate("/projects")}>
           <h1>View all</h1>
         </div>
       </h1>
-      <div className="w-full pt-12 grid grid-cols-3 gap-8">
+      <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <div
             key={index}

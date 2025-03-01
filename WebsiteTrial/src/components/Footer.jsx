@@ -44,7 +44,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="text-center text-gray-500">
+      <div className="text-center text-gray-500 pt-4">
         <p>
           &copy; 2025. Made by{" "}
           <span className="font-semibold text-blue-500">Osman</span>

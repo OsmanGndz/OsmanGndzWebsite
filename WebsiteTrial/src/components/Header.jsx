@@ -111,7 +111,7 @@ const Header = () => {
       {/* Mobile Sidebar Menü */}
       <div
         ref={sidebarRef} // Sidebar'a referans ekledik
-        className={`fixed sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[60%] h-screen flex flex-col transition-transform duration-500 ease-in-out ${
+        className={`fixed sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[70%] h-screen flex flex-col transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
