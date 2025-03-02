@@ -10,7 +10,7 @@ import {
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/HomePage/Home";
-import About from "./components/About";
+import About from "./components/AboutPage/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -22,7 +22,7 @@ function App() {
         <div className="w-screen h-16 flex items-center shadow-sm px-4 sm:px-8 lg:px-44 select-none">
           <Header />
         </div>
-        <main className="w-screen h-full flex flex-col flex-grow px-4 sm:px-8 lg:px-44 pb-16">
+        <main className="w-screen h-full flex flex-col flex-grow px-4 sm:px-8 lg:px-44 py-8">
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Home />} />

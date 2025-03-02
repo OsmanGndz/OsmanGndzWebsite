@@ -4,7 +4,7 @@ import IntroPhotoBG from "../../assets/MyPictureCartoonWithoutBG.png";
 
 const Intro = () => {
   return (
-    <div className="w-full flex flex-row pt-8 h-full md:h-[380px] lg:h-full xl:h-[380px]">
+    <div className="w-full flex flex-row h-full md:h-[380px] lg:h-full xl:h-[380px]">
       <div className="w-full md:w-1/2 hidden sm:flex flex-col gap-4 lg:gap-6">
         <h1 className="text-[20px] lg:text-[28px] font-semibold text-white bg-green-600 w-fit px-4 py-2 rounded-xl">
           Hello There!
