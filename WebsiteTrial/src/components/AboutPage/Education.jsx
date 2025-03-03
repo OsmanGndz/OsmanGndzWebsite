@@ -30,7 +30,7 @@ const EducationInfo = [
 
 const Education = () => {
   return (
-    <div className="w-ful flex flex-col">
+    <div className="w-full flex flex-col">
       <h1 className="w-full text-[32px] font-semibold text-blue-600">
         My Academic Life
       </h1>

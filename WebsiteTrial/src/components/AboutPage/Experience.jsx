@@ -1,4 +1,4 @@
-import { faBookOpenReader, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpenReader, faCalendarDays, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
@@ -57,8 +57,8 @@ const Experience = () => {
             </p>
             <p>
               <FontAwesomeIcon
-                icon={faMapLocationDot}
-                className="pr-4 text-blue-500"
+                icon={faCalendarDays}
+                className="pr-4"
               />
               {experience.startYear} - {experience.finishYear}
             </p>
