@@ -1,22 +1,26 @@
 import React from "react";
-import AlanyaKebab from "../../assets/AlanyaKebab.png";
-import OsmanGndz from "../../assets/OsmanGndzWebsite.png"; //
+import AlanyaKebabImg from "../../assets/AlanyaKebabImg.png";
+import OsmanGndz from "../../assets/OsmanGndzWebsite.png";
+import plot from "../../assets/plot.png";
 import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
+    id: "alanyakebab",
     title: "Alanya Kebab Website",
     description: "This is project 1",
-    picture: AlanyaKebab,
+    picture: AlanyaKebabImg,
   },
   {
+    id: "portfolio",
     title: "OsmanGndz Portfolio Website",
     description: "This is project 2",
     picture: OsmanGndz,
   },
   {
-    title: "Project 3",
-    description: "This is project 3",
+    id: "plotdraw",
+    title: "Drawing Plot By Using C# and Python",
+    picture: plot,
   },
 ];
 const SomeProjects = () => {
@@ -41,42 +45,28 @@ const SomeProjects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`relative flex flex-col rounded-xl shadow-md max-w-full h-80 p-2 pr-4 pb-4 cursor-pointer ${
-              project.title === "Alanya Kebab Website"
-                ? "shadow-orange-500"
-                : ""
+            onClick={() => navigate(`/projects/${project.id}`)}
+            className={`relative flex flex-col rounded-xl shadow-md max-w-full h-80 p-2 pr-4 pb-4 cursor-pointer hover:scale-103 transform duration-500 ${
+              index % 3 === 0 ? "shadow-orange-500" : ""
             }
-            ${
-              project.title === "OsmanGndz Portfolio Website"
-                ? "shadow-blue-500"
-                : ""
-            }`}
+            ${index % 3 === 1 ? "shadow-blue-500" : ""}
+            ${index % 3 === 2 ? "shadow-green-500" : ""}`}
           >
             {/* Arka plana sabitlenen daire */}
             <div
               className={`absolute top-8 left-4 w-44 h-44 rounded-full z-10 ${
-                project.title === "Alanya Kebab Website"
-                  ? "bg-orange-300/30"
-                  : ""
+                index % 3 === 0 ? "bg-orange-300/30" : ""
               }
-                ${
-                  project.title === "OsmanGndz Portfolio Website"
-                    ? "bg-blue-300/30"
-                    : ""
-                }`}
+                ${index % 3 === 1 ? "bg-blue-300/30" : ""}
+                ${index % 3 === 2 ? "bg-green-300/30" : ""}`}
             />
 
             <h1
               className={`mb-auto text-[25px] font-semibold pt-2 pl-2 z-15, ${
-                project.title === "Alanya Kebab Website"
-                  ? "text-orange-600"
-                  : ""
+                index % 3 === 0 ? "text-orange-600" : ""
               }
-                ${
-                  project.title === "OsmanGndz Portfolio Website"
-                    ? "text-blue-600"
-                    : ""
-                }`}
+                ${index % 3 === 1 ? "text-blue-600" : ""}
+                ${index % 3 === 2 ? "text-green-600" : ""}`}
             >
               {project.title}
             </h1>

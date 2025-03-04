@@ -26,11 +26,6 @@ const headerTabs = [
     link: "/projects",
     picture: <FontAwesomeIcon icon={faDumbbell} className="" />,
   },
-  {
-    title: "Contact",
-    link: "/contact",
-    picture: <FontAwesomeIcon icon={faSatelliteDish} className="" />,
-  },
 ];
 
 const Header = () => {
