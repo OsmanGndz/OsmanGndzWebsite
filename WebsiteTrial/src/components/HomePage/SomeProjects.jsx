@@ -1,5 +1,6 @@
 import React from "react";
 import AlanyaKebab from "../../assets/AlanyaKebab.png";
+import OsmanGndz from "../../assets/OsmanGndzWebsite.png"; //
 import { useNavigate } from "react-router-dom";
 
 const projects = [
@@ -11,7 +12,7 @@ const projects = [
   {
     title: "OsmanGndz Portfolio Website",
     description: "This is project 2",
-    picture: "",
+    picture: OsmanGndz,
   },
   {
     title: "Project 3",
@@ -29,7 +30,10 @@ const SomeProjects = () => {
           </p>{" "}
           <p className="pl-2">in Software</p>
         </div>
-        <div className="w-32 justify-end items-end text-[16px] lg:text-[20px] bg-blue-100 inline-block text-center text-black rounded-xl shadow-md shadow-gray-400 cursor-pointer py-1 hover:scale-103 transform duration-500" onClick={()=> navigate("/projects")}>
+        <div
+          className="w-32 justify-end items-end text-[16px] lg:text-[20px] bg-blue-100 inline-block text-center text-black rounded-xl shadow-md shadow-gray-400 cursor-pointer py-1 hover:scale-103 transform duration-500"
+          onClick={() => navigate("/projects")}
+        >
           <h1>View all</h1>
         </div>
       </h1>
@@ -37,21 +41,42 @@ const SomeProjects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`relative flex flex-col rounded-xl shadow-md max-w-full h-72 p-2 pr-4 pb-4 cursor-pointer ${
-              project.title === "Alanya Kebab Website" && "shadow-orange-500"
+            className={`relative flex flex-col rounded-xl shadow-md max-w-full h-80 p-2 pr-4 pb-4 cursor-pointer ${
+              project.title === "Alanya Kebab Website"
+                ? "shadow-orange-500"
+                : ""
+            }
+            ${
+              project.title === "OsmanGndz Portfolio Website"
+                ? "shadow-blue-500"
+                : ""
             }`}
           >
             {/* Arka plana sabitlenen daire */}
             <div
-              className={`absolute top-8 left-4 w-40 h-40 rounded-full z-10 ${
-                project.title === "Alanya Kebab Website" && "bg-orange-300/30"
-              }`}
+              className={`absolute top-8 left-4 w-44 h-44 rounded-full z-10 ${
+                project.title === "Alanya Kebab Website"
+                  ? "bg-orange-300/30"
+                  : ""
+              }
+                ${
+                  project.title === "OsmanGndz Portfolio Website"
+                    ? "bg-blue-300/30"
+                    : ""
+                }`}
             />
 
             <h1
               className={`mb-auto text-[25px] font-semibold pt-2 pl-2 z-15, ${
-                project.title === "Alanya Kebab Website" && "text-orange-600"
-              }`}
+                project.title === "Alanya Kebab Website"
+                  ? "text-orange-600"
+                  : ""
+              }
+                ${
+                  project.title === "OsmanGndz Portfolio Website"
+                    ? "text-blue-600"
+                    : ""
+                }`}
             >
               {project.title}
             </h1>
@@ -59,7 +84,7 @@ const SomeProjects = () => {
               <img
                 src={project.picture}
                 alt="sdas"
-                className="w-[85%] h-48 rounded-lg shadow-md shadow-gray-400"
+                className="w-[85%] h-52 rounded-lg shadow-md shadow-gray-400"
               />
             </div>
           </div>
