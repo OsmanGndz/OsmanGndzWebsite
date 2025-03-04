@@ -75,7 +75,7 @@ const Header = () => {
   return (
     <div className="w-full flex flex-row justify-between items-center relative">
       {menuOpen && (
-        <div className="fixed sm:hidden inset-0 bg-blue-400/20 bg-opacity-30 backdrop-blur-md transition-opacity duration-500" />
+        <div className="fixed sm:hidden inset-0 z-20 bg-blue-400/20 bg-opacity-30 backdrop-blur-md transition-opacity duration-500" />
       )}
       {/* Logo */}
       <div className="cursor-pointer" onClick={() => navigate("/home")}>
@@ -111,7 +111,7 @@ const Header = () => {
       {/* Mobile Sidebar Menü */}
       <div
         ref={sidebarRef} // Sidebar'a referans ekledik
-        className={`fixed sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[70%] h-screen flex flex-col transition-transform duration-500 ease-in-out ${
+        className={`fixed z-20 sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[70%] h-screen flex flex-col transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
