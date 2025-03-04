@@ -11,8 +11,9 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/HomePage/Home";
 import About from "./components/AboutPage/About";
-import Projects from "./components/Projects";
+import Projects from "./components/ProjectPage/Projects";
 import Footer from "./components/Footer";
+import ProjectDetail from "./components/ProjectPage/ProjectDetail";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} />
             </Routes>
           </div>
         </main>
