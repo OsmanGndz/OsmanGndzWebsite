@@ -81,37 +81,37 @@ const DataScienceSkills = [
 const Skills = () => {
   return (
     <div className="w-full flex flex-col gap-8">
-      <h1 className="text-[32px] font-semibold text-blue-600">
+      <h1 className="text-[24px] lg:text-[32px] font-semibold text-blue-600">
         What Is My Skills?
       </h1>
       <div className="w-full flex flex-col items-center">
-        <h1 className="text-[32px] bg-green-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
+        <h1 className="text-[24px] lg:text-[32px] bg-green-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
           Front-end
         </h1>
-        <div className="pt-12 w-full grid grid-cols-4 text-[60px]">
+        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
           {FrontSkills.map((skill, index) => (
             <div
-              className="w-full pb-12 flex gap-4 items-center hover:scale-104 cursor-pointer transform duration-400"
+              className="w-full pb-12 flex gap-4 items-center hover:scale-104 transform duration-400"
               key={index}
             >
               {skill.icon}
-              <p className="text-[20px] font-semibold">{skill.name}</p>
+              <p className="text-[18px] sm:text-[20px] font-semibold">{skill.name}</p>
             </div>
           ))}
         </div>
       </div>
       <div className="w-full flex flex-col items-center">
-        <h1 className="text-[32px] bg-blue-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
+        <h1 className="text-[24px] lg:text-[32px] bg-blue-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
           Data Science
         </h1>
-        <div className="pt-12 w-full grid grid-cols-4 text-[60px]">
+        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
           {DataScienceSkills.map((skill, index) => (
             <div
-              className="w-full pb-12 flex gap-4 items-center hover:scale-102 cursor-pointer transform duration-400"
+              className="w-full pb-12 flex gap-4 items-center hover:scale-102 transform duration-400"
               key={index}
             >
               {skill.icon}
-              <p className="text-[20px] font-semibold">{skill.name}</p>
+              <p className="text-[18px] sm:text-[20px] font-semibold">{skill.name}</p>
             </div>
           ))}
         </div>

@@ -31,10 +31,10 @@ const EducationInfo = [
 const Education = () => {
   return (
     <div className="w-full flex flex-col">
-      <h1 className="w-full text-[32px] font-semibold text-blue-600">
+      <h1 className="w-full text-[24px] lg:text-[32px] font-semibold text-blue-600">
         My Academic Life
       </h1>
-      <div className="w-full flex flex-row gap-8 pt-8">
+      <div className="w-full flex flex-col md:flex-row gap-8 pt-8">
         {EducationInfo.map((Education, index) => (
           <div className="w-full flex flex-col gap-2 shadow-md p-4 rounded-xl hover:scale-102 transform duration-500">
             <h1 className="text-[20px] font-semibold">{Education.name}</h1>
