@@ -3,20 +3,25 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
-  Link,
-  useNavigate,
+  ScrollRestoration,
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/HomePage/Home";
 import About from "./components/AboutPage/About";
-import Projects from "./components/Projects";
+import Projects from "./components/ProjectPage/Projects";
 import Footer from "./components/Footer";
+import AlanyaKebab from "./components/ProjectPage/AlanyaKebab";
+import Portfolio from "./components/ProjectPage/Portfolio";
+import DataSet from "./components/ProjectPage/DataSet";
+import YoutubeChannels from "./components/ProjectPage/YoutubeChannels";
+import PlotDraw from "./components/ProjectPage/PlotDraw";
+import ScrollToTop from "./common/ScrollToTop";
 
 function App() {
   return (
     <Router basename="/OsmanGndzWebsite">
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col select-none">
         {/* Header */}
         <div className="w-full flex justify-center shadow-sm bg-white">
@@ -33,6 +38,14 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/alanyakebab" element={<AlanyaKebab />} />
+              <Route path="/projects/portfolio" element={<Portfolio />} />
+              <Route path="/projects/datasetanalysis" element={<DataSet />} />
+              <Route
+                path="/projects/youtubechannels"
+                element={<YoutubeChannels />}
+              />
+              <Route path="/projects/plotdraw" element={<PlotDraw />} />
             </Routes>
           </div>
         </main>
