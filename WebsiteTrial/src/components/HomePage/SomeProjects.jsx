@@ -1,7 +1,7 @@
 import React from "react";
-import AlanyaKebabImg from "../../assets/AlanyaKebabImg.png";
-import OsmanGndz from "../../assets/OsmanGndzWebsite.png";
-import plot from "../../assets/plot.png";
+import AlanyaKebabImg from "../../assets/Project/AlanyaKebabImg.png";
+import OsmanGndz from "../../assets/Project/OsmanGndzWebsite.png";
+import plot from "../../assets/Project/plot.png";
 import { useNavigate } from "react-router-dom";
 
 const projects = [
