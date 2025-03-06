@@ -15,6 +15,7 @@ import {
   faDatabase,
   faTable,
 } from "@fortawesome/free-solid-svg-icons"; // TypeScript için
+import { useTranslation } from "react-i18next";
 const Interests = [
   {
     name: "Front-End Developer",
@@ -92,13 +93,14 @@ const Interests = [
   },
 ];
 const OtherInterestArea = () => {
+  const {t} = useTranslation();
   return (
     <div className="w-full flex flex-col items-center px-0 2xl:px-40">
       <h1 className="text-[24px] lg:text-[32px] font-bold flex flex-col sm:flex-none sm:flex-row items-center ">
         <span className="bg-green-600 px-4 py-2 text-white rounded-xl">
-          My Interesets
+          {t("My Interesets")}
         </span>{" "}
-        <p className="ml-0 sm:ml-2">in Software</p>
+        <p className="ml-0 sm:ml-2">{t("in Software")}</p>
       </h1>
       <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {Interests.map((interest, index) => (
