@@ -15,6 +15,7 @@ import {
   faTable,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {useTranslation } from "react-i18next"
 
 const FrontSkills = [
   {
@@ -79,10 +80,11 @@ const DataScienceSkills = [
 ];
 
 const Skills = () => {
+  const {t} = useTranslation();
   return (
     <div className="w-full flex flex-col gap-8">
       <h1 className="text-[24px] lg:text-[32px] font-semibold text-blue-600">
-        What Is My Skills?
+        {t("What Is My Skills?")}
       </h1>
       <div className="w-full flex flex-col items-center">
         <h1 className="text-[24px] lg:text-[32px] bg-green-500 w-fit px-4 py-2 rounded-xl text-white font-bold">

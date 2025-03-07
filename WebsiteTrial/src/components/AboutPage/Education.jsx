@@ -6,33 +6,36 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import {useTranslation} from "react-i18next"
 
-const EducationInfo = [
-  {
-    name: "Konya Food And Agriculture University",
-    location: "Melikşah, Beyşehir Cd. No:9, 42080 Meram/Konya",
-    field: "Computer Engineering (English)",
-    startYear: "2020",
-    finishYear: "2025",
-    gpa: "3.70 / 4",
-    degree: "Bachelor's degree",
-  },
-  {
-    name: "Josip Juraj Strossmayer University of Osijek",
-    location: "Trg Svetog Trojstva 3, 31000, Osijek, Hırvatistan",
-    field: "Computer Engineering (English)",
-    startYear: "03/2024",
-    finishYear: "07/2024",
-    gpa: "3.78 / 4",
-    degree: "Erasmus Student Mobility",
-  },
-];
 
 const Education = () => {
+  const {t} = useTranslation();
+  const EducationInfo = [
+    {
+      name: t("Konya Food And Agriculture University"),
+      location: "Melikşah, Beyşehir Cd. No:9, 42080 Meram/Konya",
+      field: t("Computer Engineering (English)"),
+      startYear: "2020",
+      finishYear: "2025",
+      gpa: "3.70 / 4",
+      degree: t("Bachelor's degree"),
+    },
+    {
+      name: "Josip Juraj Strossmayer University of Osijek",
+      location: "Trg Svetog Trojstva 3, 31000, Osijek, Hırvatistan",
+      field: t("Computer Engineering (English)"),
+      startYear: "03/2024",
+      finishYear: "07/2024",
+      gpa: "3.78 / 4",
+      degree: t("Erasmus Student Mobility"),
+    },
+  ];
+  
   return (
     <div className="w-full flex flex-col">
       <h1 className="w-full text-[24px] lg:text-[32px] font-semibold text-blue-600">
-        My Academic Life
+        {t("My Academic Life")}
       </h1>
       <div className="w-full flex flex-col md:flex-row gap-8 pt-8">
         {EducationInfo.map((Education, index) => (

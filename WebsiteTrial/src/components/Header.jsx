@@ -1,6 +1,8 @@
 import {
   faAddressCard,
   faCaretDown,
+  faCaretLeft,
+  faCaretRight,
   faCaretUp,
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -12,29 +14,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import tr_flag from "../assets/Flags/tr_flag.png";
 import uk_flag from "../assets/Flags/uk_flag.png";
-
-const headerTabs = [
-  {
-    title: "Home",
-    link: "/home",
-    picture: <FontAwesomeIcon icon={faHouse} className="" />,
-  },
-  {
-    title: "About",
-    link: "/about",
-    picture: <FontAwesomeIcon icon={faAddressCard} className="" />,
-  },
-  {
-    title: "Projects",
-    link: "/projects",
-    picture: <FontAwesomeIcon icon={faDumbbell} className="" />,
-  },
-];
-
-const languages = [
-  { name: "English", icon: uk_flag },
-  { name: "Türkçe", icon: tr_flag },
-];
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,9 +23,43 @@ const Header = () => {
   const location = useLocation();
   const sidebarRef = useRef(null);
   const currentPath = location.pathname.split("/").pop();
-  const [lang, setLang] = useState("English");
-  const [langIcon, setLangIcon] = useState(uk_flag);
+  const [lang, setLang] = useState( localStorage.getItem("language") === "en" ? "English" : "Türkçe" || "English");
+  const [langIcon, setLangIcon] = useState(
+    localStorage.getItem("language") === "en" ? uk_flag : tr_flag || uk_flag
+  );
   const [languageToggle, setLanguageToggle] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const headerTabs = [
+    {
+      title: t("Home"),
+      name: "Home",
+      link: "/home",
+      picture: <FontAwesomeIcon icon={faHouse} className="" />,
+    },
+    {
+      title: t("About"),
+      name: "About",
+      link: "/about",
+      picture: <FontAwesomeIcon icon={faAddressCard} className="" />,
+    },
+    {
+      title: t("Projects"),
+      name: "Projects",
+      link: "/projects",
+      picture: <FontAwesomeIcon icon={faDumbbell} className="" />,
+    },
+  ];
+
+  const languages = [
+    { name: "English", code: "en", icon: uk_flag },
+    { name: "Türkçe", code: "tr", icon: tr_flag },
+  ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("language", lng);
+  };
 
   useEffect(() => {
     setSelectedMenu(capitalizeFirstLetter(currentPath));
@@ -84,7 +98,7 @@ const Header = () => {
         <div className="fixed sm:hidden inset-0 z-20 bg-blue-400/20 bg-opacity-30 backdrop-blur-md transition-opacity duration-500" />
       )}
       {/* Logo */}
-      <div className="cursor-pointer" onClick={() => navigate("/home")}>
+      <div className="cursor-pointer w-full" onClick={() => navigate("/home")}>
         <h1 className="text-blue-500 font-bold text-[28px]">
           Osman
           <span className="text-blue-400 font-semibold">Gndz</span>
@@ -92,22 +106,24 @@ const Header = () => {
       </div>
 
       {/* Desktop Menü */}
-      <div className="hidden sm:flex flex-row gap-8 md:gap-12 lg:gap-20 font-semibold text-[16px]">
+      <div className="w-full hidden sm:flex flex-row gap-8 md:gap-12 lg:gap-20 font-semibold text-[16px]">
         {headerTabs.map((tab, index) => (
           <div
             key={index}
-            className="cursor-pointer hover:text-blue-500 transition"
+            className={`w-full min-w-[88px] cursor-pointer hover:text-blue-500 transition ${
+              tab.name === selectedMenu ? "text-blue-500" : ""
+            }`}
             onClick={() => navigate(tab.link)}
           >
             {tab.title}
           </div>
         ))}
         <div
-          className="cursor-pointer relative w-full"
+          className="cursor-pointer relative w-full min-w-[50px] flex justify-end"
           onClick={() => setLanguageToggle(!languageToggle)}
         >
           <h1 className="flex flex-row items-center gap-2">
-            <img src={langIcon} alt="flag" className="w-6"/>
+            <img src={langIcon} alt="flag" className="w-6" />
             {!languageToggle ? (
               <FontAwesomeIcon icon={faCaretDown} />
             ) : (
@@ -115,15 +131,18 @@ const Header = () => {
             )}
           </h1>
           {languageToggle && (
-            <div className="absolute top-11 right-0 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md">
+            <div className="absolute top-11 right-0 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
               {languages.map((language, i) => (
                 <div
                   key={i}
-                  className="w-full flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer"
+                  className={`w-full flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer ${
+                    lang === language.name ? "bg-blue-200 rounded-md" : ""
+                  }`}
                   onClick={() => {
                     setLang(language.name);
                     setLangIcon(language.icon);
                     setLanguageToggle(false);
+                    changeLanguage(language.code);
                   }}
                 >
                   <img
@@ -162,26 +181,68 @@ const Header = () => {
             className="text-2xl text-black cursor-pointer"
             onClick={() => setMenuOpen(false)}
           />
-          <h1 className="text-blue-500 font-bold text-[28px]">
+          <h1 className="text-blue-500 font-bold text-[24px]">
             Osman
             <span className="text-blue-400 font-semibold">Gndz</span>
           </h1>
         </div>
 
         {/* Menü Listesi */}
-        <div className="w-full flex flex-col text-[18px] font-semibold">
-          {headerTabs.map((tab, index) => (
+        <div className="flex flex-col w-full h-full justify-between">
+          <div className="w-full flex flex-col text-[18px] font-semibold">
+            {headerTabs.map((tab, index) => (
+              <div
+                key={index}
+                className={`cursor-pointer flex flex-row items-center gap-4 px-4 py-4 ${
+                  selectedMenu === tab.name ? "bg-blue-300" : ""
+                }`}
+                onClick={() => handleMenuSelection(tab.link, tab.name)}
+              >
+                {tab.picture}
+                {tab.title}
+              </div>
+            ))}
+          </div>
+          <div className="w-full border-t-1 p-6 flex flex-row">
             <div
-              key={index}
-              className={`cursor-pointer flex flex-row items-center gap-4 px-4 py-4 ${
-                selectedMenu === tab.title ? "bg-blue-300" : ""
-              }`}
-              onClick={() => handleMenuSelection(tab.link, tab.title)}
+              className="cursor-pointer relative w-full min-w-[50px] flex"
+              onClick={() => setLanguageToggle(!languageToggle)}
             >
-              {tab.picture}
-              {tab.title}
+              <h1 className="flex flex-row items-center gap-2">
+                {!languageToggle ? (
+                  <FontAwesomeIcon icon={faCaretUp} />
+                ) : (
+                  <FontAwesomeIcon icon={faCaretDown} />
+                )}
+                <img src={langIcon} alt="flag" className="w-6" />
+              </h1>
+              {languageToggle && (
+                <div className="absolute bottom-12 right-20 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
+                  {languages.map((language, i) => (
+                    <div
+                      key={i}
+                      className={`w-full flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer ${
+                        lang === language.name ? "bg-blue-200 rounded-md" : ""
+                      }`}
+                      onClick={() => {
+                        setLang(language.name);
+                        setLangIcon(language.icon);
+                        setLanguageToggle(false);
+                        changeLanguage(language.code);
+                      }}
+                    >
+                      <img
+                        src={language.icon}
+                        alt={language.name}
+                        className="w-6"
+                      />
+                      <p>{language.name}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>
