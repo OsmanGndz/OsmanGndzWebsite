@@ -17,6 +17,7 @@ import DataSet from "./components/ProjectPage/DataSet";
 import YoutubeChannels from "./components/ProjectPage/YoutubeChannels";
 import PlotDraw from "./components/ProjectPage/PlotDraw";
 import ScrollToTop from "./common/ScrollToTop";
+import "./language/i18n";
 
 function App() {
   return (

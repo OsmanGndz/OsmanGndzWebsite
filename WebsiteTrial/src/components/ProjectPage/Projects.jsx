@@ -5,41 +5,42 @@ import DataSetAnalysis from "../../assets/Project/DataSetAnalysis.png";
 import channel from "../../assets/Project/channel.png";
 import plot from "../../assets/Project/plot.png";
 import { useNavigate } from "react-router-dom";
-
-const projects = [
-  {
-    id: "alanyakebab",
-    title: "Alanya Kebab Website",
-    picture: AlanyaKebabImg,
-  },
-  {
-    id: "portfolio",
-    title: "OsmanGndz Portfolio Website",
-    picture: OsmanGndz,
-  },
-  {
-    id: "plotdraw",
-    title: "Drawing Plot ",
-    picture: plot,
-  },
-  {
-    id: "datasetanalysis",
-    title: "Dataset Analysis",
-    picture: DataSetAnalysis,
-  },
-  {
-    id: "youtubechannels",
-    title: "The Famous Youtube Channels",
-    picture: channel,
-  },
-];
+import {useTranslation} from "react-i18next"
 
 const Projects = () => {
   const navigate = useNavigate();
+  const {t} = useTranslation();
+  const projects = [
+    {
+      id: "alanyakebab",
+      title: t("Alanya Kebab Website"),
+      picture: AlanyaKebabImg,
+    },
+    {
+      id: "portfolio",
+      title: t("OsmanGndz Portfolio Website"),
+      picture: OsmanGndz,
+    },
+    {
+      id: "plotdraw",
+      title: t("Drawing Plot By Using C# and Python"),
+      picture: plot,
+    },
+    {
+      id: "datasetanalysis",
+      title: t("Dataset Analysis"),
+      picture: DataSetAnalysis,
+    },
+    {
+      id: "youtubechannels",
+      title: t("The Famous Youtube Channels"),
+      picture: channel,
+    },
+  ];
   return (
     <div className="w-full">
       <h1 className="text-[30px] font-bold bg-gray-600 w-fit px-4 py-2 rounded-xl text-white">
-        My Projects
+        {t("My Projects")}
       </h1>
       <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {projects.map((project, index) => (

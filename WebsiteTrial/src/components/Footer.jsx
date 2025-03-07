@@ -2,6 +2,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const contacts = [
   {
@@ -22,6 +23,7 @@ const contacts = [
 ];
 
 const Footer = () => {
+  const {t} = useTranslation();
   return (
     <div className="w-full flex flex-col">
       <div className="text-[18px] w-full flex flex-row">
@@ -30,7 +32,7 @@ const Footer = () => {
             Osman
             <span className="text-blue-400 font-semibold">Gndz</span>
           </h1>
-          <h1 className="text-gray-600 font-semibold">Computer Engineer</h1>
+          <h1 className="text-gray-600 font-semibold">{t("Computer Engineer")}</h1>
         </div>
         <div className="w-full flex justify-end flex-row gap-8 pt-8">
           {contacts.map((contact, index) => (

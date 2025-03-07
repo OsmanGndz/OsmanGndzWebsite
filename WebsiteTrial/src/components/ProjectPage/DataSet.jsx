@@ -4,6 +4,7 @@ import DataSetAnalysis from "../../assets/Project/DataSetAnalysis.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPython } from "@fortawesome/free-brands-svg-icons";
 import { faChartBar, faTable } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 const technologies = [
   {
@@ -28,11 +29,12 @@ const technologies = [
   },
 ];
 const DataSet = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="w-full flex flex-col gap-12 text-[18px] text-gray-700">
         <h1 className="font-bold text-[24px] md:text-[30px] w-fit bg-orange-500 text-white px-4 py-2 rounded-xl">
-          Analaysing Dataset
+        {t("Dataset Analysis")}
         </h1>
         <div className="w-full lg:w-1/2 flex flex-col gap-8 lg:hidden">
           <img
@@ -52,12 +54,7 @@ const DataSet = () => {
         <div className="w-full flex flex-row gap-8">
           <div className="w-full lg:w-1/2 flex flex-col gap-8">
             <p>
-              Bu GitHub reposu, dünya genelinde kadın cinayetlerinin analizine
-              yönelik bir projeyi içermektedir. Proje, kadın cinayetlerine
-              ilişkin verilerin toplandığı bir veri setini kullanarak çeşitli
-              analizler yapmayı amaçlamaktadır. Veri seti, farklı ülkelerdeki
-              kadın cinayetleriyle ilgili sayısal veriler ve bu cinayetlerin
-              nedenleri hakkında derinlemesine bilgiler sunmaktadır.
+              {t("DataDescription1")}
             </p>
           </div>
           <div className="w-1/2 hidden lg:flex flex-col gap-8">
@@ -78,7 +75,7 @@ const DataSet = () => {
         </div>
         <div className="w-full flex flex-col gap-12">
           <h1 className="bg-blue-500 w-fit text-white px-4 py-2 text-[20px] md:text-[28px] font-semibold rounded-xl">
-            Tools
+            {t("Tools")}
           </h1>
           <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
             {technologies.map((tech, index) => (

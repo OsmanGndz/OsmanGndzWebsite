@@ -1,40 +1,45 @@
 import { faBookOpenReader, faCalendarDays, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import {useTranslation} from "react-i18next"
 
-const ExperienceInfo = [
-  {
-    name: "Tubitak",
-    location: "Tubitak - Turkey",
-    field: "Scholarship",
-    startYear: "11/2024",
-    finishYear: "ongoing",
-    area: "Scholar",
-  },
-  {
-    name: "Cesa Yazılım",
-    location: "Yolkent sitesi, Duraliler, 4583. Sk. No:39, 07220 Kepez/Antalya",
-    field: "Intern",
-    startYear: "08/2024",
-    finishYear: "09/2024",
-    area: "Front-end Developer",
-  },
-  {
-    name: "Disti Bilişim",
-    location:
-      "Mustafa Kemal Mh. Dumlupınar Blv. No:266A İç Kapı No:18 06510 Çankaya/Ankara",
-    field: "Intern",
-    startYear: "07/2024",
-    finishYear: "08/2024",
-    area: "Software Technical Support",
-  },
-];
+
 
 const Experience = () => {
+
+  const {t} = useTranslation();
+
+  const ExperienceInfo = [
+    {
+      name: "Tubitak",
+      location: t("Tubitak - Turkey"),
+      field: t("Scholarship"),
+      startYear: "11/2024",
+      finishYear: t("ongoing"),
+      area: t("Scholar"),
+    },
+    {
+      name: "Cesa Yazılım",
+      location: "Yolkent sitesi, Duraliler, 4583. Sk. No:39, 07220 Kepez/Antalya",
+      field: t("Intern"),
+      startYear: "08/2024",
+      finishYear: "09/2024",
+      area: t("Front-end Developer"),
+    },
+    {
+      name: "Disti Bilişim",
+      location:
+        "Mustafa Kemal Mh. Dumlupınar Blv. No:266A İç Kapı No:18 06510 Çankaya/Ankara",
+      field: t("Intern"),
+      startYear: "07/2024",
+      finishYear: "08/2024",
+      area: t("Software Technical Support"),
+    },
+  ];
   return (
     <div className="w-ful flex flex-col">
       <h1 className="w-full text-[24px] lg:text-[32px] font-semibold text-blue-600">
-        My Experiences
+        {t("My Experiences")}
       </h1>
       <div className="w-full grid md:grid-cols-2 gap-8 pt-8">
         {ExperienceInfo.map((experience, index) => (
