@@ -202,7 +202,7 @@ const Header = () => {
         </div>
 
         {/* Menü Listesi */}
-        <div className="flex flex-col w-full h-full justify-between">
+        <div className="flex flex-col w-full h-full">
           <div className="w-full flex flex-col text-[18px] font-semibold">
             {headerTabs.map((tab, index) => (
               <div
@@ -217,7 +217,7 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <div className="w-full border-t-1 p-6 flex flex-row">
+          <div className="w-full border-t-1 p-6 flex flex-row mt-auto">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full min-w-[50px] flex"
