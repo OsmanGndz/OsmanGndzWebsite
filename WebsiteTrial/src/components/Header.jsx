@@ -17,18 +17,46 @@ import uk_flag from "../assets/Flags/uk_flag.png";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const useClickOutside = (ref, state, setState) => {
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setState(false);
+        }
+      };
+
+      if (state) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
+    }, [state, ref, setState]);
+  };
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState("Home");
   const location = useLocation();
   const sidebarRef = useRef(null);
+  useClickOutside(sidebarRef, menuOpen, setMenuOpen);
   const currentPath = location.pathname.split("/").pop();
-  const [lang, setLang] = useState( localStorage.getItem("language") === "en" ? "English" : "Türkçe" || "English");
+  const [lang, setLang] = useState(
+    localStorage.getItem("language") === "en"
+      ? "English"
+      : "Türkçe" || "English"
+  );
   const [langIcon, setLangIcon] = useState(
     localStorage.getItem("language") === "en" ? uk_flag : tr_flag || uk_flag
   );
   const [languageToggle, setLanguageToggle] = useState(false);
   const { t, i18n } = useTranslation();
+  const desktopLangRef = useRef(null);
+  useClickOutside(desktopLangRef, languageToggle, setLanguageToggle);
+  const mobileLangRef = useRef(null);
+  const [mobileLanguageToggle, setMobileLanguageToggle] = useState(false);
+  useClickOutside(mobileLangRef, mobileLanguageToggle, setMobileLanguageToggle);
 
   const headerTabs = [
     {
@@ -65,21 +93,6 @@ const Header = () => {
     setSelectedMenu(capitalizeFirstLetter(currentPath));
   }, [currentPath]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [menuOpen]);
 
   const capitalizeFirstLetter = (str) => {
     if (!str) return str;
@@ -119,6 +132,7 @@ const Header = () => {
           </div>
         ))}
         <div
+          ref={desktopLangRef}
           className="cursor-pointer relative w-full min-w-[50px] flex justify-end"
           onClick={() => setLanguageToggle(!languageToggle)}
         >
@@ -205,18 +219,19 @@ const Header = () => {
           </div>
           <div className="w-full border-t-1 p-6 flex flex-row">
             <div
+              ref={mobileLangRef}
               className="cursor-pointer relative w-full min-w-[50px] flex"
-              onClick={() => setLanguageToggle(!languageToggle)}
+              onClick={() => setMobileLanguageToggle(!mobileLanguageToggle)}
             >
               <h1 className="flex flex-row items-center gap-2">
-                {!languageToggle ? (
+                {!mobileLanguageToggle ? (
                   <FontAwesomeIcon icon={faCaretUp} />
                 ) : (
                   <FontAwesomeIcon icon={faCaretDown} />
                 )}
                 <img src={langIcon} alt="flag" className="w-6" />
               </h1>
-              {languageToggle && (
+              {mobileLanguageToggle && (
                 <div className="absolute bottom-12 right-20 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
                   {languages.map((language, i) => (
                     <div
@@ -227,7 +242,7 @@ const Header = () => {
                       onClick={() => {
                         setLang(language.name);
                         setLangIcon(language.icon);
-                        setLanguageToggle(false);
+                        setMobileLanguageToggle(false);
                         changeLanguage(language.code);
                       }}
                     >
