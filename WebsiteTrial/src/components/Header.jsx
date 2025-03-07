@@ -217,7 +217,7 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <div className="w-full border-t-1 p-6 flex flex-row mt-auto">
+          <div className="w-full border-t-1 p-6 flex flex-row mt-auto mb-8">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full min-w-[50px] flex"
