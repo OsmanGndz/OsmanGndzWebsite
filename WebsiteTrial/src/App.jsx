@@ -16,7 +16,7 @@ import "./language/i18n";
 
 function App() {
   return (
-    <Router basename="/OsmanGndzWebsite">
+    <Router basename="/">
       <ScrollToTop />
       <div className="min-h-screen flex flex-col select-none">
         {/* Header */}
