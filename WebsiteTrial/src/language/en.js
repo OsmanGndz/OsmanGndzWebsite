@@ -46,7 +46,30 @@ const en = {
   Intern: "Intern",
   "Front-end Developer": "Front-end Developer",
   "Software Technical Support": "Software Technical Support",
-  "My Experiences":"My Experiences"
+  "My Experiences": "My Experiences",
+  "Dataset Analysis": "Dataset Analysis",
+  "The Famous Youtube Channels": "The Famous Youtube Channels",
+  "My Projects": "My Projects",
+  AlanyaKebabDescription1:
+    "The Alanya Kebab website is a modern platform designed to showcase the restaurant's menu, services, and contact information. With its user-friendly interface, visitors can learn detailed information about the restaurant, place online orders, or make reservations to plan an enjoyable dining experience.",
+  AlanyaKebabDescription2:
+    "Additionally, a special admin panel is available for users with administrative privileges. Through this panel, menu updates can be made, orders can be managed, and customer feedback can be tracked.",
+  AlanyaKebabDescription3:
+    "The site, featuring a mobile-friendly and minimalist design, has been developed to provide a seamless experience on all devices. You can visit the site to learn more or explore the details!",
+  "Front end part": "Front end part",
+  PortfolioDescription1:
+    "Osman Gündüz's personal website is a modern platform designed to showcase his skills, projects, and experiences in the field of software development. With its user-friendly interface, visitors can learn about Osman’s software journey, explore his portfolio projects, and get in touch with him.",
+  PortfolioDescription2:
+    "Additionally, the website features a mobile-friendly and minimalist design, ensuring a seamless experience across all devices. Its well-structured layout and clear design provide an aesthetically pleasing visual experience that enhances accessibility.",
+  PortfolioDescription3:
+    "The Osman Gündüz Portfolio Website serves as a showcase for the software developer’s projects and professional background. It is an effective tool for both personal branding and collaboration opportunities. ",
+  Tools: "Tools",
+  PlotDescription1:
+    "The Draw-Plot GitHub repository is a project developed to enable users to visualize data. This repository provides a user-friendly interface, especially for those interested in creating graphs and performing data analysis. Users can input specific parameters to visualize their data on graphs. The project facilitates the quick and efficient generation of charts using different data types.",
+  DataDescription1:
+    "This GitHub repository contains a project focused on analyzing femicides worldwide. The project aims to perform various analyses using a dataset that collects data on femicides. The dataset provides in-depth information on numerical data related to femicides in different countries and the causes behind these crimes.",
+  YoutubeDescription1:
+    "This GitHub repository contains a project that collects various data on the most popular YouTube channels in the world. The project aims to analyze metrics such as view counts, subscriber numbers, content types, and other important data to understand trends on the YouTube platform.",
 };
 
 export default en;

@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {useTranslation} from "react-i18next"
 
 const technologies = [
   {
@@ -38,11 +39,12 @@ const technologies = [
   },
 ];
 const Portfolio = () => {
+  const {t} = useTranslation();
   return (
     <div className="w-full">
       <div className="w-full flex flex-col gap-12 text-[18px] text-gray-700">
         <h1 className="font-bold text-[24px] md:text-[30px] w-fit bg-blue-500 text-white px-4 py-2 rounded-xl">
-          Osman Gündüz Portfolyo Web Sitesi
+          {t("OsmanGndz Portfolio Website")}
         </h1>
         <div className="w-full lg:w-1/2 flex flex-col gap-8 lg:hidden">
             <img
@@ -62,24 +64,13 @@ const Portfolio = () => {
         <div className="w-full flex flex-row gap-8">
           <div className="w-full lg:w-1/2 flex flex-col gap-8">
             <p>
-              Osman Gündüz'ün kişisel web sitesi, yazılım alanındaki
-              yeteneklerini, projelerini ve deneyimlerini sergilemek için
-              geliştirilmiş modern bir platformdur. Kullanıcı dostu arayüzü
-              sayesinde ziyaretçiler, Osman'ın yazılım yolculuğu hakkında bilgi
-              edinebilir, portföyündeki projeleri keşfedebilir ve iletişim
-              kurabilirler.
+              {t("PortfolioDescription1")}
             </p>
             <p>
-              Ayrıca, web sitesi, her cihazda sorunsuz bir deneyim sunacak
-              şekilde <strong>mobil uyumlu</strong> ve minimalist bir tasarıma
-              sahiptir. Kullanıcıların siteye erişimini kolaylaştıran düzeni ve
-              net yapısı ile estetik bir görsel deneyim sağlar.
+            {t("PortfolioDescription2")}
             </p>
             <p>
-              Osman Gündüz Portföy Web Sitesi, yazılım geliştiricinin
-              projelerini ve profesyonel geçmişini sergileyen bir vitrin olarak
-              işlev görmektedir. Hem kişisel hem de işbirliği fırsatları için
-              etkili bir araç sunmaktadır.
+            {t("PortfolioDescription3")}
             </p>
           </div>
           <div className="w-1/2 hidden lg:flex flex-col gap-8">
@@ -100,7 +91,7 @@ const Portfolio = () => {
         </div>
         <div className="w-full flex flex-col gap-12">
           <h1 className="bg-green-500 w-fit text-white px-4 py-2 text-[20px] md:text-[28px] font-semibold rounded-xl">
-            Tools
+            {t("Tools")}
           </h1>
           <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
             {technologies.map((tech, index) => (
