@@ -38,7 +38,16 @@ const tr = {
   "Computer Engineering (English)": "Bilgisayar Mühendisliği (İngilizce)",
   "Bachelor's degree": "Lisans",
   "Erasmus Student Mobility": "Erasmus Öğrenci Hareketliliği",
-  "My Academic Life": "Akademik Hayatım"
+  "My Academic Life": "Akademik Hayatım",
+  "What Is My Skills?":"Yeteneklerim",
+  "Tubitak - Turkey": "Tubitak - Türkiye",
+  Scholarship: "Bursiyer",
+  ongoing: "devam ediyor",
+  Scholar: "",
+  Intern: "Stajyer",
+  "Front-end Developer": "Front-end Geliştirici",
+  "Software Technical Support": "Yazılım Teknik Destek",
+  "My Experiences":"Deneyimlerim"
 };
 
 export default tr;

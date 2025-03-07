@@ -37,7 +37,16 @@ const en = {
   "Computer Engineering (English)": "Computer Engineering (English)",
   "Bachelor's degree": "Bachelor's degree",
   "Erasmus Student Mobility": "Erasmus Student Mobility",
-  "My Academic Life": "My Academic Life"
+  "My Academic Life": "My Academic Life",
+  "What Is My Skills?": "What Is My Skills?",
+  "Tubitak - Turkey": "Tubitak - Turkey",
+  Scholarship: "Scholarship",
+  ongoing: "ongoing",
+  Scholar: "Scholar",
+  Intern: "Intern",
+  "Front-end Developer": "Front-end Developer",
+  "Software Technical Support": "Software Technical Support",
+  "My Experiences":"My Experiences"
 };
 
 export default en;
