@@ -93,7 +93,6 @@ const Header = () => {
     setSelectedMenu(capitalizeFirstLetter(currentPath));
   }, [currentPath]);
 
-
   const capitalizeFirstLetter = (str) => {
     if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -217,22 +216,23 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <div className="w-full border-t-1 p-6 flex flex-row mt-auto mb-8">
+          <div className="w-full border-t-1 p-6 flex flex-row">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full min-w-[50px] flex"
               onClick={() => setMobileLanguageToggle(!mobileLanguageToggle)}
             >
               <h1 className="flex flex-row items-center gap-2">
-                {!mobileLanguageToggle ? (
-                  <FontAwesomeIcon icon={faCaretUp} />
-                ) : (
-                  <FontAwesomeIcon icon={faCaretDown} />
-                )}
                 <img src={langIcon} alt="flag" className="w-6" />
+                <p>{lang}</p>
+                {!mobileLanguageToggle ? (
+                  <FontAwesomeIcon icon={faCaretDown} />
+                ) : (
+                  <FontAwesomeIcon icon={faCaretUp} />
+                )}
               </h1>
               {mobileLanguageToggle && (
-                <div className="absolute bottom-12 right-20 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
+                <div className="absolute top-8 right-14 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
                   {languages.map((language, i) => (
                     <div
                       key={i}
