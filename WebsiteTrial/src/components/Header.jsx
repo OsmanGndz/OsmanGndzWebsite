@@ -126,7 +126,7 @@ const Header = () => {
             )}
           </h1>
           {languageToggle && (
-            <div className="absolute top-11 right-0 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md">
+            <div className="absolute top-11 right-0 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
               {languages.map((language, i) => (
                 <div
                   key={i}
