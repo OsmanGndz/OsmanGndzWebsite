@@ -227,13 +227,13 @@ const Header = () => {
 
       {/* Mobile Sidebar Menü */}
       <div
-        ref={sidebarRef} // Sidebar'a referans ekledik
-        className={`fixed z-20 sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[70%] h-screen flex flex-col transition-transform duration-500 ease-in-out ${
+        ref={sidebarRef}
+        className={`fixed z-20 sm:hidden top-0 right-0 bg-white shadow-md shadow-blue-600 w-[70%] h-[100dvh] flex flex-col transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Kapatma Butonu */}
-        <div className="w-full bg-blue-200 px-4 h-20 items-center flex justify-between">
+        <div className="w-full bg-blue-200 px-4 h-16 items-center flex justify-between shrink-0">
           <FontAwesomeIcon
             icon={faCircleArrowRight}
             className="text-2xl text-black cursor-pointer"
@@ -246,22 +246,26 @@ const Header = () => {
         </div>
 
         {/* Menü Listesi */}
-        <div className="flex flex-col w-full h-full">
-          <div className="w-full flex flex-col text-[18px] font-semibold flex-grow overflow-y-auto">
-            {headerTabs.map((tab, index) => (
-              <div
-                key={index}
-                className={`cursor-pointer flex flex-row items-center gap-4 p-4 ${
-                  selectedMenu === tab.name ? "bg-blue-300" : ""
-                }`}
-                onClick={() => handleMenuSelection(tab.link, tab.name)}
-              >
-                {tab.picture}
-                {tab.title}
-              </div>
-            ))}
+        <div className="flex flex-col w-full min-h-0 flex-1">
+          <div className="flex-1 overflow-y-auto">
+            <div className="w-full flex flex-col text-[18px] font-semibold">
+              {headerTabs.map((tab, index) => (
+                <div
+                  key={index}
+                  className={`cursor-pointer flex flex-row items-center gap-4 p-4 ${
+                    selectedMenu === tab.name ? "bg-blue-300" : ""
+                  }`}
+                  onClick={() => handleMenuSelection(tab.link, tab.name)}
+                >
+                  {tab.picture}
+                  {tab.title}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="w-full border-t border-gray-200 bg-gray-50 p-4 mt-auto">
+
+          {/* Dil Seçici - Sabit Alt Kısım */}
+          <div className="w-full border-t border-gray-200 bg-gray-50 p-4 shrink-0">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full flex justify-center"
@@ -283,7 +287,7 @@ const Header = () => {
                 )}
               </div>
               {mobileLanguageToggle && (
-                <div className="absolute bottom-full mb-2 w-40 border border-gray-200 bg-white flex flex-col gap-1 p-2 rounded-lg shadow-lg z-10">
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-40 border border-gray-200 bg-white flex flex-col gap-1 p-2 rounded-lg shadow-lg z-30">
                   {languages.map((language, i) => (
                     <div
                       key={i}
