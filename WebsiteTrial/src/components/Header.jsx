@@ -233,7 +233,7 @@ const Header = () => {
         }`}
       >
         {/* Kapatma Butonu */}
-        <div className="w-full bg-blue-200 px-4 h-16 items-center flex justify-between shrink-0">
+        <div className="w-full bg-blue-200 px-4 h-20 items-center flex justify-between shrink-0">
           <FontAwesomeIcon
             icon={faCircleArrowRight}
             className="text-2xl text-black cursor-pointer"
@@ -265,7 +265,7 @@ const Header = () => {
           </div>
 
           {/* Dil Seçici - Sabit Alt Kısım */}
-          <div className="w-full border-t border-gray-200 bg-gray-50 p-4 shrink-0">
+          <div className="w-full border-t border-gray-200 p-4 shrink-0">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full flex justify-center"
