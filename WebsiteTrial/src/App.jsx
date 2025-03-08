@@ -21,7 +21,7 @@ function App() {
       <div className="min-h-screen flex flex-col select-none">
         {/* Header */}
         <div className="w-full h-full flex justify-center shadow-sm bg-white">
-          <div className="w-full min-h-16 max-w-[1440px] h-full sm:h-16 flex items-center px-4 sm:px-8 lg:px-44">
+          <div className="w-full min-h-20 max-w-[1440px] h-full sm:h-20 flex items-center px-4 sm:px-8 lg:px-44">
             <Header />
           </div>
         </div>

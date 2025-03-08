@@ -207,7 +207,7 @@ const Header = () => {
         }`}
       >
         {/* Kapatma Butonu */}
-        <div className="w-full bg-blue-200 px-4 h-16 items-center flex justify-between">
+        <div className="w-full bg-blue-200 px-4 h-20 items-center flex justify-between">
           <FontAwesomeIcon
             icon={faCircleArrowRight}
             className="text-2xl text-black cursor-pointer"
@@ -225,7 +225,7 @@ const Header = () => {
             {headerTabs.map((tab, index) => (
               <div
                 key={index}
-                className={`cursor-pointer flex flex-row items-center gap-4 px-4 py-4 ${
+                className={`cursor-pointer flex flex-row items-center gap-4 p-4 ${
                   selectedMenu === tab.name ? "bg-blue-300" : ""
                 }`}
                 onClick={() => handleMenuSelection(tab.link, tab.name)}
@@ -235,7 +235,7 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <div className="w-full border-t-1 p-6 flex flex-row">
+          <div className="fixed bottom-8 left-0 w-full border-t-1 p-6 flex flex-row justify-center">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full min-w-[50px] flex"
@@ -251,7 +251,7 @@ const Header = () => {
                 )}
               </h1>
               {mobileLanguageToggle && (
-                <div className="absolute top-8 right-14 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
+                <div className="absolute bottom-14 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
                   {languages.map((language, i) => (
                     <div
                       key={i}
