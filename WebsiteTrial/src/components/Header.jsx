@@ -280,10 +280,10 @@ const Header = () => {
                 {!mobileLanguageToggle ? (
                   <FontAwesomeIcon
                     icon={faCaretUp}
-                    className="text-gray-500"
+                    className="text-gray-600"
                   />
                 ) : (
-                  <FontAwesomeIcon icon={faCaretDown} className="text-gray-500" />
+                  <FontAwesomeIcon icon={faCaretDown} className="text-gray-600" />
                 )}
               </div>
               {mobileLanguageToggle && (
