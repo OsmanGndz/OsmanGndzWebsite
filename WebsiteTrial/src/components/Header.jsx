@@ -279,15 +279,15 @@ const Header = () => {
                 <p className="font-medium">{lang}</p>
                 {!mobileLanguageToggle ? (
                   <FontAwesomeIcon
-                    icon={faCaretDown}
+                    icon={faCaretUp}
                     className="text-gray-500"
                   />
                 ) : (
-                  <FontAwesomeIcon icon={faCaretUp} className="text-gray-500" />
+                  <FontAwesomeIcon icon={faCaretDown} className="text-gray-500" />
                 )}
               </div>
               {mobileLanguageToggle && (
-                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-40 border border-gray-200 bg-white flex flex-col gap-1 p-2 rounded-lg shadow-lg z-30">
+                <div className="absolute bottom-full mb-2 left-[40%] -translate-x-1/2 w-40 border border-gray-200 bg-white flex flex-col gap-1 p-2 rounded-lg shadow-lg z-30">
                   {languages.map((language, i) => (
                     <div
                       key={i}
