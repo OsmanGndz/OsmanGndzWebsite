@@ -268,7 +268,7 @@ const Header = () => {
           <div className="w-full border-t border-gray-200 p-4 shrink-0">
             <div
               ref={mobileLangRef}
-              className="cursor-pointer relative w-full flex justify-center"
+              className="cursor-pointer relative w-full flex"
               onClick={() => setMobileLanguageToggle(!mobileLanguageToggle)}
             >
               <div
