@@ -38,8 +38,10 @@ const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState("Home");
+  const [menuPosition, setMenuPosition] = useState("bottom");
   const location = useLocation();
   const sidebarRef = useRef(null);
+  const langButtonRef = useRef(null);
   useClickOutside(sidebarRef, menuOpen, setMenuOpen);
   const currentPath = location.pathname.split("/").pop();
   const [lang, setLang] = useState(
@@ -122,6 +124,30 @@ const Header = () => {
       document.removeEventListener("touchmove", disableScroll);
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const handleMenuPosition = () => {
+      if (langButtonRef.current) {
+        const buttonRect = langButtonRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const spaceBelow = windowHeight - buttonRect.bottom;
+
+        // If space below is less than 200px, show menu above
+        setMenuPosition(spaceBelow < 200 ? "top" : "bottom");
+      }
+    };
+
+    if (mobileLanguageToggle) {
+      handleMenuPosition();
+      window.addEventListener("scroll", handleMenuPosition);
+      window.addEventListener("resize", handleMenuPosition);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleMenuPosition);
+      window.removeEventListener("resize", handleMenuPosition);
+    };
+  }, [mobileLanguageToggle]);
 
   return (
     <div className="w-full flex flex-row justify-between items-center relative">
@@ -221,7 +247,7 @@ const Header = () => {
 
         {/* Menü Listesi */}
         <div className="flex flex-col w-full h-full">
-          <div className="w-full flex flex-col text-[18px] font-semibold flex-grow">
+          <div className="w-full flex flex-col text-[18px] font-semibold flex-grow overflow-y-auto">
             {headerTabs.map((tab, index) => (
               <div
                 key={index}
@@ -235,28 +261,34 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <div className="fixed bottom-8 left-0 w-full border-t-1 p-6 flex flex-row justify-center">
+          <div className="w-full border-t border-gray-200 bg-gray-50 p-4 mt-auto">
             <div
               ref={mobileLangRef}
-              className="cursor-pointer relative w-full min-w-[50px] flex"
+              className="cursor-pointer relative w-full flex justify-center"
               onClick={() => setMobileLanguageToggle(!mobileLanguageToggle)}
             >
-              <h1 className="flex flex-row items-center gap-2">
+              <div
+                ref={langButtonRef}
+                className="flex flex-row items-center gap-3 bg-white px-4 py-2 rounded-lg shadow-sm"
+              >
                 <img src={langIcon} alt="flag" className="w-6" />
-                <p>{lang}</p>
+                <p className="font-medium">{lang}</p>
                 {!mobileLanguageToggle ? (
-                  <FontAwesomeIcon icon={faCaretDown} />
+                  <FontAwesomeIcon
+                    icon={faCaretDown}
+                    className="text-gray-500"
+                  />
                 ) : (
-                  <FontAwesomeIcon icon={faCaretUp} />
+                  <FontAwesomeIcon icon={faCaretUp} className="text-gray-500" />
                 )}
-              </h1>
+              </div>
               {mobileLanguageToggle && (
-                <div className="absolute bottom-14 w-32 border border-gray-300 bg-white flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
+                <div className="absolute bottom-full mb-2 w-40 border border-gray-200 bg-white flex flex-col gap-1 p-2 rounded-lg shadow-lg z-10">
                   {languages.map((language, i) => (
                     <div
                       key={i}
-                      className={`w-full flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer ${
-                        lang === language.name ? "bg-blue-200 rounded-md" : ""
+                      className={`w-full flex items-center gap-3 p-2.5 hover:bg-gray-50 cursor-pointer rounded-md transition-colors ${
+                        lang === language.name ? "bg-blue-50 text-blue-600" : ""
                       }`}
                       onClick={() => {
                         setLang(language.name);
@@ -270,7 +302,7 @@ const Header = () => {
                         alt={language.name}
                         className="w-6"
                       />
-                      <p>{language.name}</p>
+                      <p className="font-medium">{language.name}</p>
                     </div>
                   ))}
                 </div>
