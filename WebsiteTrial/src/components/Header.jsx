@@ -104,6 +104,25 @@ const Header = () => {
     setMenuOpen(false);
   };
 
+  useEffect(() => {
+    const disableScroll = (e) => {
+      e.preventDefault();
+    };
+
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("touchmove", disableScroll, { passive: false });
+    } else {
+      document.body.style.overflow = "auto";
+      document.removeEventListener("touchmove", disableScroll);
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.removeEventListener("touchmove", disableScroll);
+    };
+  }, [menuOpen]);
+
   return (
     <div className="w-full flex flex-row justify-between items-center relative">
       {menuOpen && (
@@ -202,7 +221,7 @@ const Header = () => {
 
         {/* Menü Listesi */}
         <div className="flex flex-col w-full h-full">
-          <div className="w-full flex flex-col text-[18px] font-semibold">
+          <div className="w-full flex flex-col text-[18px] font-semibold flex-grow">
             {headerTabs.map((tab, index) => (
               <div
                 key={index}
