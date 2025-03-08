@@ -20,7 +20,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col select-none">
         {/* Header */}
-        <div className="w-full h-full flex justify-center shadow-sm bg-white">
+        <div className="w-full h-full flex justify-center shadow-sm bg-white dark:bg-blue-950">
           <div className="w-full min-h-20 max-w-[1440px] h-full sm:h-20 flex items-center px-4 sm:px-8 lg:px-44">
             <Header />
           </div>
@@ -47,7 +47,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <div className="w-full flex justify-center shadow-sm bg-blue-100 py-6">
+        <div className="w-full flex justify-center shadow-sm bg-blue-100 dark:bg-blue-950 py-6">
           <div className="w-full max-w-[1440px] px-4 sm:px-8 lg:px-44">
             <Footer />
           </div>
