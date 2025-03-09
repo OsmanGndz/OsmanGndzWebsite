@@ -32,7 +32,7 @@ const Footer = () => {
             Osman
             <span className="text-blue-400 dark:text-blue-200 font-semibold">Gndz</span>
           </h1>
-          <h1 className="text-gray-600 dark:text-zinc-400 font-semibold">{t("Computer Engineer")}</h1>
+          <h1 className="text-gray-600 dark:text-zinc-300 font-semibold">{t("Computer Engineer")}</h1>
         </div>
         <div className="w-full flex justify-end flex-row gap-8 pt-8 text-black dark:text-zinc-200">
           {contacts.map((contact, index) => (

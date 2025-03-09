@@ -95,9 +95,9 @@ const Interests = [
 const OtherInterestArea = () => {
   const {t} = useTranslation();
   return (
-    <div className="w-full flex flex-col items-center px-0 2xl:px-40">
+    <div className="w-full flex flex-col items-center px-0 2xl:px-40 text-black dark:text-zinc-100">
       <h1 className="text-[24px] lg:text-[32px] font-bold flex flex-col sm:flex-none sm:flex-row items-center ">
-        <span className="bg-green-600 px-4 py-2 text-white rounded-xl">
+        <span className="bg-green-600 dark:bg-green-800 px-4 py-2 text-white rounded-xl">
           {t("My Interesets")}
         </span>{" "}
         <p className="ml-0 sm:ml-2">{t("in Software")}</p>
@@ -106,7 +106,7 @@ const OtherInterestArea = () => {
         {Interests.map((interest, index) => (
           <div
             key={index}
-            className="rounded-xl shadow-md shadow-gray-500 max-w-full hover:scale-102 transition duration-500"
+            className="rounded-xl shadow-md shadow-gray-500 dark:shadow-gray-600 max-w-full hover:scale-102 transition duration-500"
           >
             <div className="w-full">
               <img
@@ -115,7 +115,7 @@ const OtherInterestArea = () => {
                 className="rounded-t-xl h-52 w-full object-cover"
               />
             </div>
-            <div className="w-full py-2 flex flex-col">
+            <div className="w-full py-2 flex flex-col bg-white dark:bg-neutral-800">
               <h1 className="font-semibold text-[24px] text-center w-full pb-2">
                 {interest.name}
               </h1>
