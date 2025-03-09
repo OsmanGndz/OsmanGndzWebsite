@@ -354,12 +354,12 @@ const Header = () => {
               {theme === "light" ? (
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon icon={faMoon} className="text-blue-800 text-[24px]" />
-                  <p className="text-black dark:text-white">Dark Theme</p>
+                  <p className="text-black dark:text-white">{t("Dark Theme")}</p>
                 </div>
               ) : (
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon icon={faSun} className="text-amber-600 text-[24px]" />
-                  <p className="text-black dark:text-white">Light Theme</p>
+                  <p className="text-black dark:text-white">{t("Light Theme")}</p>
                 </div>
               )}
             </div>

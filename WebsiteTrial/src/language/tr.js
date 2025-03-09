@@ -70,6 +70,12 @@ const tr = {
     "Bu GitHub reposu, dünya genelinde kadın cinayetlerinin analizine yönelik bir projeyi içermektedir. Proje, kadın cinayetlerine ilişkin verilerin toplandığı bir veri setini kullanarak çeşitli analizler yapmayı amaçlamaktadır. Veri seti, farklı ülkelerdeki kadın cinayetleriyle ilgili sayısal veriler ve bu cinayetlerin nedenleri hakkında derinlemesine bilgiler sunmaktadır.",
   YoutubeDescription1:
     "Bu GitHub reposu, dünyanın en ünlü YouTube kanallarına dair çeşitli verilerin toplandığı bir projeyi içermektedir. Proje, popüler YouTube kanallarının izlenme sayıları, abone sayıları, içerik türleri ve diğer önemli metrikleri analiz ederek YouTube platformundaki trendleri anlamayı amaçlamaktadır.",
+  "Dark Theme": "Koyu Tema",
+  "Light Theme": "Aydınlık Tema",
+  "Page not found": "Sayfa bulunamadı",
+  "Sorry, we could not find the page you are looking for.":
+    "Üzgünüz, aradığınız sayfayı bulamadık.",
+  "Go back home": "Ana sayfaya git",
 };
 
 export default tr;

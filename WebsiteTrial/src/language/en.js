@@ -70,6 +70,12 @@ const en = {
     "This GitHub repository contains a project focused on analyzing femicides worldwide. The project aims to perform various analyses using a dataset that collects data on femicides. The dataset provides in-depth information on numerical data related to femicides in different countries and the causes behind these crimes.",
   YoutubeDescription1:
     "This GitHub repository contains a project that collects various data on the most popular YouTube channels in the world. The project aims to analyze metrics such as view counts, subscriber numbers, content types, and other important data to understand trends on the YouTube platform.",
+  "Dark Theme": "Dark Theme",
+  "Light Theme": "Light Theme",
+  "Page not found": "Page not found",
+  "Sorry, we could not find the page you are looking for.":
+    "Sorry, we could not find the page you are looking for.",
+  "Go back home": "Go back home",
 };
 
 export default en;

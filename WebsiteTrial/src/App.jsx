@@ -12,6 +12,7 @@ import YoutubeChannels from "./components/ProjectPage/YoutubeChannels";
 import PlotDraw from "./components/ProjectPage/PlotDraw";
 import ScrollToTop from "./common/ScrollToTop";
 import "./language/i18n";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <main className="w-full flex justify-center flex-grow bg-white dark:bg-neutral-900">
           <div className="w-full max-w-[1440px] flex flex-col px-4 sm:px-8 lg:px-44 py-8">
             <Routes>
+              <Route path="*" element = {<NotFound/>} />
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
