@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 const Intro = () => {
   const { t } = useTranslation();
@@ -43,36 +44,60 @@ const Intro = () => {
       action: (address) => (window.location.href = `mailto:${address}`),
     },
   ];
+
   return (
-    <div className="w-full flex flex-row ">
+    <div className="w-full flex flex-row">
+      {/* SOL KISIM (YAZILAR) */}
       <div className="w-full sm:w-[55%] flex flex-col gap-12 text-[18px] text-gray-700 dark:text-zinc-300 pr-0 lg:pr-12">
-        <div className="w-full flex justify-center sm:hidden">
-          <img
+        {/* Mobilde Resim (sm:hidden olduğu için küçük ekranlarda görünecek) */}
+        <motion.div
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full flex justify-center sm:hidden"
+        >
+          <motion.img
+            initial={{ opacity: 0.5, y: 100, rotate: -5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={Personal_photo_Cropped}
             alt="Personal_photo_Cropped"
-            className="w-[60%] object-cover rounded-[35px] rotate-4 shadow-md shadow-gray-500"
+            className="w-[60%] object-cover rounded-[35px] shadow-md shadow-gray-500"
           />
-        </div>
+        </motion.div>
+
         <h1 className="text-[30px] lg:text-[35px] font-bold text-black dark:text-zinc-100">
-          {t("I Am")} <span className="bg-amber-300 dark:bg-amber-600 px-2">Osman Gündüz.</span>
+          {t("I Am")}{" "}
+          <span className="bg-amber-300 dark:bg-amber-600 px-2">
+            Osman Gündüz.
+          </span>
         </h1>
         <p>{t("AboutPart1")}</p>
         <p>{t("AboutPart2")}</p>
-        <p>
         <p>{t("AboutPart3")}</p>
-        </p>
-        <p>
         <p>{t("AboutPart4")}</p>
-        </p>
       </div>
+
+      {/* SAĞ KISIM (BÜYÜK EKRANDA GÖRÜNECEK) */}
       <div className="w-[45%] pt-12 flex-col gap-12 hidden sm:flex">
-        <div className="w-full flex justify-end">
-          <img
+        {/* Masaüstü için Resim */}
+        <motion.div
+          initial={{ opacity: 0, y: 100, rotate: -5 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full flex justify-end"
+        >
+          <motion.img
             src={Personal_photo_Cropped}
             alt="Personal_photo_Cropped"
-            className="w-[70%] object-cover rounded-[35px] rotate-4 shadow-md shadow-gray-500 dark:shadow-gray-700"
+            className="w-[70%] object-cover rounded-[35px] shadow-md shadow-gray-500 dark:shadow-gray-700"
           />
-        </div>
+        </motion.div>
+
+        {/* Sosyal Medya İkonları */}
         <div className="w-full px-20 flex flex-col gap-4 items-center font-semibold text-gray-800 dark:text-zinc-300">
           {contacts.map((contact, index) => (
             <div

@@ -10,7 +10,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useTranslation} from "react-i18next"
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 const technologies = [
   {
@@ -35,7 +36,12 @@ const technologies = [
   },
   {
     name: "GitHub",
-    icon: <FontAwesomeIcon icon={faGithub} className="text-black dark:text-zinc-300" />,
+    icon: (
+      <FontAwesomeIcon
+        icon={faGithub}
+        className="text-black dark:text-zinc-300"
+      />
+    ),
   },
   {
     name: "Git",
@@ -43,39 +49,43 @@ const technologies = [
   },
 ];
 const AlanyaKebab = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       <div className="w-full flex flex-col gap-12 text-[18px] text-gray-700 dark:text-zinc-300">
         <h1 className="font-bold text-[24px] md:text-[30px] w-fit bg-orange-500 dark:bg-orange-700 text-white px-4 py-2 rounded-xl">
           {t("Alanya Kebab Website")}
         </h1>
-        <div className="w-full lg:w-1/2 flex flex-col gap-8 lg:hidden">
-            <img
-              src={AlanyaKebabImg}
-              alt="Alanya Kebab Website"
-              className="w-full rounded-xl"
-            />
-            <a
-              href="https://www.alanyakebab.com/"
-              className="text-blue-600"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              alanyakebab.com
-            </a>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:w-1/2 flex flex-col gap-8 lg:hidden"
+        >
+          <motion.img
+            initial={{ opacity: 0, y: 100, rotate: -5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            src={AlanyaKebabImg}
+            alt="Alanya Kebab Website"
+            className="w-full rounded-xl"
+          />
+          <a
+            href="https://www.alanyakebab.com/"
+            className="text-blue-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            alanyakebab.com
+          </a>
+        </motion.div>
         <div className="w-full flex flex-row gap-8">
           <div className="w-full lg:w-1/2 flex flex-col gap-8">
-            <p>
-              {t("AlanyaKebabDescription1")}
-            </p>
-            <p>
-              {t("AlanyaKebabDescription2")}
-            </p>
-            <p>
-            {t("AlanyaKebabDescription3")}
-            </p>
+            <p>{t("AlanyaKebabDescription1")}</p>
+            <p>{t("AlanyaKebabDescription2")}</p>
+            <p>{t("AlanyaKebabDescription3")}</p>
           </div>
           <div className="w-1/2 hidden lg:flex flex-col gap-8">
             <img

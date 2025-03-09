@@ -3,21 +3,46 @@ import Intro from "./Intro";
 import Skills from "./Skills";
 import Experience from "./Experience";
 import Education from "./Education";
+import {motion} from "framer-motion"
 const About = () => {
   return (
     <div className="w-full flex flex-col gap-20">
-      <div className="w-full">
+      <motion.div
+        initial={{ opacity: 0.8, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full"
+      >
         <Intro />
-      </div>
-      <div className="w-full">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0.8, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full"
+      >
         <Education />
-      </div>
-      <div className="w-full">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0.8, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full"
+      >
         <Skills />
-      </div>
-      <div className="w-full">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0.8, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full"
+      >
         <Experience />
-      </div>
+      </motion.div>
     </div>
   );
 };
