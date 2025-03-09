@@ -83,14 +83,14 @@ const Skills = () => {
   const {t} = useTranslation();
   return (
     <div className="w-full flex flex-col gap-8">
-      <h1 className="text-[24px] lg:text-[32px] font-semibold text-blue-600">
+      <h1 className="text-[24px] lg:text-[32px] font-semibold text-blue-600 dark:text-blue-500">
         {t("What Is My Skills?")}
       </h1>
       <div className="w-full flex flex-col items-center">
-        <h1 className="text-[24px] lg:text-[32px] bg-green-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
+        <h1 className="text-[24px] lg:text-[32px] bg-green-500 dark:bg-green-800 w-fit px-4 py-2 rounded-xl text-white font-bold">
           Front-end
         </h1>
-        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
+        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px] text-black dark:text-zinc-100">
           {FrontSkills.map((skill, index) => (
             <div
               className="w-full pb-12 flex gap-4 items-center hover:scale-104 transform duration-400"
@@ -103,10 +103,10 @@ const Skills = () => {
         </div>
       </div>
       <div className="w-full flex flex-col items-center">
-        <h1 className="text-[24px] lg:text-[32px] bg-blue-500 w-fit px-4 py-2 rounded-xl text-white font-bold">
+        <h1 className="text-[24px] lg:text-[32px] bg-blue-500 dark:bg-blue-800 w-fit px-4 py-2 rounded-xl text-white font-bold">
           Data Science
         </h1>
-        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
+        <div className="pt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px] text-black dark:text-zinc-100">
           {DataScienceSkills.map((skill, index) => (
             <div
               className="w-full pb-12 flex gap-4 items-center hover:scale-102 transform duration-400"

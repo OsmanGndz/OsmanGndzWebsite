@@ -44,8 +44,8 @@ const Intro = () => {
     },
   ];
   return (
-    <div className="w-full flex flex-row">
-      <div className="w-full sm:w-[55%] flex flex-col gap-12 text-[18px] text-gray-700 pr-0 lg:pr-12">
+    <div className="w-full flex flex-row ">
+      <div className="w-full sm:w-[55%] flex flex-col gap-12 text-[18px] text-gray-700 dark:text-zinc-300 pr-0 lg:pr-12">
         <div className="w-full flex justify-center sm:hidden">
           <img
             src={Personal_photo_Cropped}
@@ -53,8 +53,8 @@ const Intro = () => {
             className="w-[60%] object-cover rounded-[35px] rotate-4 shadow-md shadow-gray-500"
           />
         </div>
-        <h1 className="text-[30px] lg:text-[35px] font-bold text-black">
-          {t("I Am")} <span className="bg-amber-300 px-2">Osman Gündüz.</span>
+        <h1 className="text-[30px] lg:text-[35px] font-bold text-black dark:text-zinc-100">
+          {t("I Am")} <span className="bg-amber-300 dark:bg-amber-600 px-2">Osman Gündüz.</span>
         </h1>
         <p>{t("AboutPart1")}</p>
         <p>{t("AboutPart2")}</p>
@@ -70,10 +70,10 @@ const Intro = () => {
           <img
             src={Personal_photo_Cropped}
             alt="Personal_photo_Cropped"
-            className="w-[70%] object-cover rounded-[35px] rotate-4 shadow-md shadow-gray-500"
+            className="w-[70%] object-cover rounded-[35px] rotate-4 shadow-md shadow-gray-500 dark:shadow-gray-700"
           />
         </div>
-        <div className="w-full px-20 flex flex-col gap-4 items-center font-semibold text-gray-800">
+        <div className="w-full px-20 flex flex-col gap-4 items-center font-semibold text-gray-800 dark:text-zinc-300">
           {contacts.map((contact, index) => (
             <div
               key={index}

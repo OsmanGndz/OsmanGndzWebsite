@@ -24,8 +24,8 @@ const PlotDraw = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="w-full flex flex-col gap-12 text-[18px] text-gray-700">
-        <h1 className="font-bold text-[24px] md:text-[30px] w-fit bg-green-500 text-white px-4 py-2 rounded-xl">
+      <div className="w-full flex flex-col gap-12 text-[18px] text-gray-700 dark:text-zinc-300">
+        <h1 className="font-bold text-[24px] md:text-[30px] w-fit bg-green-500 dark:bg-green-800 text-white px-4 py-2 rounded-xl">
           {t("Drawing Plot By Using C# and Python")}
         </h1>
         <div className="w-full lg:w-1/2 flex flex-col gap-8 lg:hidden">
@@ -58,10 +58,10 @@ const PlotDraw = () => {
           </div>
         </div>
         <div className="w-full flex flex-col gap-12">
-          <h1 className="bg-blue-500 w-fit text-white px-4 py-2 text-[20px] md:text-[28px] font-semibold rounded-xl">
+          <h1 className="bg-blue-500 dark:bg-blue-800 w-fit text-white px-4 py-2 text-[20px] md:text-[28px] font-semibold rounded-xl">
             {t("Tools")}
           </h1>
-          <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px]">
+          <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-[32px] sm:text-[40px] lg:text-[60px] text-black dark:text-zinc-100">
             {technologies.map((tech, index) => (
               <div
                 key={index}
