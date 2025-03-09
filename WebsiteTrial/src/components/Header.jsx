@@ -156,7 +156,7 @@ const Header = () => {
   return (
     <div className="w-full flex flex-row justify-between items-center relative">
       {menuOpen && (
-        <div className="fixed sm:hidden inset-0 z-20 bg-blue-400/20 dark:bg-blue-900/20 bg-opacity-30 backdrop-blur-md transition-opacity duration-500" />
+        <div className="fixed sm:hidden inset-0 z-20 bg-blue-400/20 dark:bg-neutral-900/20 bg-opacity-30 backdrop-blur-md transition-opacity duration-500" />
       )}
       {/* Logo */}
       <div className="cursor-pointer w-full" onClick={() => navigate("/home")}>
@@ -197,13 +197,13 @@ const Header = () => {
             )}
           </h1>
           {languageToggle && (
-            <div className="absolute top-11 right-0 w-32 border border-gray-300 dark:border-gray-600 bg-white dark:bg-blue-900 flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
+            <div className="absolute top-11 right-0 w-32 border border-gray-300 dark:border-gray-600 bg-white dark:bg-neutral-900 flex flex-col gap-2 p-2 rounded-md shadow-md z-10">
               {languages.map((language, i) => (
                 <div
                   key={i}
-                  className={`w-full flex items-center gap-2 p-2 text-black dark:text-zinc-100 hover:bg-gray-100 hover:dark:bg-blue-500 hover:rounded-md cursor-pointer ${
+                  className={`w-full flex items-center gap-2 p-2 text-black dark:text-zinc-100 hover:bg-gray-100 hover:dark:bg-neutral-700 hover:rounded-md cursor-pointer ${
                     lang === language.name
-                      ? "bg-blue-200 dark:bg-blue-500 rounded-md"
+                      ? "bg-blue-200 dark:bg-neutral-600 rounded-md"
                       : ""
                   }`}
                   onClick={() => {
@@ -231,9 +231,9 @@ const Header = () => {
           className="text-[24px] cursor-pointer"
         >
           {theme === "light" ? (
-            <FontAwesomeIcon icon={faMoon} className="text-blue-800" />
+            <FontAwesomeIcon icon={faMoon} className="text-neutral-900" />
           ) : (
-            <FontAwesomeIcon icon={faSun} className="text-amber-600" />
+            <FontAwesomeIcon icon={faSun} className="text-amber-500" />
           )}
         </div>
       </div>
@@ -255,7 +255,7 @@ const Header = () => {
         }`}
       >
         {/* Kapatma Butonu */}
-        <div className="w-full bg-blue-200 dark:bg-blue-950 px-4 h-20 items-center flex justify-between shrink-0">
+        <div className="w-full bg-blue-200 dark:bg-neutral-950 px-4 h-20 items-center flex justify-between shrink-0 border-b border-gray-400 dark:border-gray-600">
           <FontAwesomeIcon
             icon={faCircleArrowRight}
             className="text-2xl text-black dark:text-zinc-100 cursor-pointer"
@@ -270,7 +270,7 @@ const Header = () => {
         </div>
 
         {/* Menü Listesi */}
-        <div className="flex flex-col w-full min-h-0 flex-1 bg-white dark:bg-blue-900">
+        <div className="flex flex-col w-full min-h-0 flex-1 bg-white dark:bg-neutral-900">
           <div className="flex-1 overflow-y-auto">
             <div className="w-full flex flex-col text-[18px] font-semibold">
               {headerTabs.map((tab, index) => (
@@ -291,7 +291,7 @@ const Header = () => {
           </div>
 
           {/* Dil Seçici - Sabit Alt Kısım */}
-          <div className="w-full border-t border-gray-200 dark:border-gray-400 p-4 shrink-0 flex flex-col gap-4">
+          <div className="w-full border-t border-gray-200 dark:border-gray-600 p-4 shrink-0 flex flex-col gap-4">
             <div
               ref={mobileLangRef}
               className="cursor-pointer relative w-full flex"
@@ -299,7 +299,7 @@ const Header = () => {
             >
               <div
                 ref={langButtonRef}
-                className="flex flex-row items-center gap-3 bg-white dark:bg-blue-700 px-4 py-2 rounded-lg shadow-sm dark:shadow-blue-600"
+                className="flex flex-row items-center gap-3 p-2 rounded-lg"
               >
                 <img src={langIcon} alt="flag" className="w-6" />
                 <p className="font-medium text-black dark:text-zinc-100">
@@ -318,13 +318,13 @@ const Header = () => {
                 )}
               </div>
               {mobileLanguageToggle && (
-                <div className="absolute bottom-full mb-2 left-[40%] -translate-x-1/2 w-40 border border-gray-200 dark:border-gray-600 bg-white dark:bg-blue-900 flex flex-col gap-1 p-2 rounded-lg shadow-lg z-30">
+                <div className="absolute bottom-full mb-2 left-[40%] -translate-x-1/2 w-40 border border-gray-200 dark:border-gray-600 bg-white dark:bg-neutral-900 flex flex-col gap-1 p-2 rounded-lg shadow-lg z-30">
                   {languages.map((language, i) => (
                     <div
                       key={i}
                       className={`w-full flex items-center text-black dark:text-zinc-100 gap-3 p-2.5 cursor-pointer rounded-md transition-colors ${
                         lang === language.name
-                          ? "bg-blue-200 dark:bg-blue-500"
+                          ? "bg-blue-200 dark:bg-neutral-700"
                           : ""
                       }`}
                       onClick={() => {
@@ -354,12 +354,12 @@ const Header = () => {
               {theme === "light" ? (
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon icon={faMoon} className="text-blue-800 text-[24px]" />
-                  <p className="text-black dark:text-white">Dark Theme</p>
+                  <p className="text-black dark:text-white">{t("Dark Theme")}</p>
                 </div>
               ) : (
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon icon={faSun} className="text-amber-600 text-[24px]" />
-                  <p className="text-black dark:text-white">Light Theme</p>
+                  <p className="text-black dark:text-white">{t("Light Theme")}</p>
                 </div>
               )}
             </div>

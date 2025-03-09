@@ -34,12 +34,12 @@ const Education = () => {
   
   return (
     <div className="w-full flex flex-col">
-      <h1 className="w-full text-[24px] lg:text-[32px] font-semibold text-blue-600">
+      <h1 className="w-full text-[24px] lg:text-[32px] font-semibold text-blue-600 dark:text-blue-500">
         {t("My Academic Life")}
       </h1>
-      <div className="w-full flex flex-col md:flex-row gap-8 pt-8">
+      <div className="w-full flex flex-col md:flex-row gap-8 pt-8 text-black dark:text-zinc-100">
         {EducationInfo.map((Education, index) => (
-          <div className="w-full flex flex-col gap-2 shadow-md p-4 rounded-xl hover:scale-102 transform duration-500">
+          <div className="w-full flex flex-col gap-2 shadow-md shadow-gray-300 dark:shadow-gray-600 p-4 rounded-xl hover:scale-102 transform duration-500 bg-white dark:bg-neutral-800">
             <h1 className="text-[20px] font-semibold">{Education.name}</h1>
             <hr />
             <p>

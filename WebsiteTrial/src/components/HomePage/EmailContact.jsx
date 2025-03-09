@@ -29,10 +29,10 @@ const EmailContact = () => {
     },
   ];
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full text-black dark:text-zinc-100">
       <div className="w-full text-center">
         <h1 className="text-[24px] lg:text-[32px] font-bold">
-          <span className="bg-gray-500 text-white px-4 py-2 rounded-xl">
+          <span className="bg-gray-500 dark:bg-gray-700 text-white px-4 py-2 rounded-xl">
             {t("Contact")}
           </span>{" "}
           {t("with me")}
