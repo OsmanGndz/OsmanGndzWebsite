@@ -10,7 +10,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full"
       >
@@ -19,7 +19,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full"
       >
@@ -28,7 +28,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full"
       >
@@ -37,7 +37,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full"
       >

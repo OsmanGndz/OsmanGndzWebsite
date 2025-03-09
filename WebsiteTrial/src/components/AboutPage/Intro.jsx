@@ -91,6 +91,10 @@ const Intro = () => {
           className="w-full flex justify-end"
         >
           <motion.img
+            initial={{ opacity: 0.5, y: 100, rotate: -5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={Personal_photo_Cropped}
             alt="Personal_photo_Cropped"
             className="w-[70%] object-cover rounded-[35px] shadow-md shadow-gray-500 dark:shadow-gray-700"

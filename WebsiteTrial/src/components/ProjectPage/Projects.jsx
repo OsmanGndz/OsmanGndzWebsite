@@ -38,21 +38,22 @@ const Projects = () => {
     },
   ];
   return (
-    <div>
+    <motion.div
+      initial={{
+        opacity: 0.8,
+        x: 50,
+      }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="transition-opacity duration-700"
+    >
       <h1 className="text-[30px] font-bold bg-gray-600 dark:bg-gray-700 w-fit px-4 py-2 rounded-xl text-white">
         {t("My Projects")}
       </h1>
       <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: index === 0 ? -50 : index === 1 ? 50 : 0,
-              x: index === 2 ? 50 : index === 3 ? -50 : index === 4 ? 50: 0
-            }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+          <div
             key={index}
             onClick={() => navigate(`/projects/${project.id}`)}
             className={`relative flex flex-col rounded-xl shadow-md max-w-full h-72 p-2 pr-4 pb-4 cursor-pointer hover:scale-103 transform duration-500 bg-white dark:bg-neutral-800 ${
@@ -86,10 +87,10 @@ const Projects = () => {
                 className="w-[85%] h-44 rounded-lg shadow-md shadow-gray-400 dark:shadow-gray-600"
               />
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

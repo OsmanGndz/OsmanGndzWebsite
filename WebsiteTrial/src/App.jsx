@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/HomePage/Home";
 import About from "./components/AboutPage/About";
@@ -13,7 +18,25 @@ import PlotDraw from "./components/ProjectPage/PlotDraw";
 import ScrollToTop from "./common/ScrollToTop";
 import "./language/i18n";
 import NotFound from "./components/NotFound";
+import { AnimatePresence, motion } from "framer-motion";
 
+const PageWrapper = ({ children }) => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 function App() {
   return (
     <Router basename="/">
@@ -30,19 +53,79 @@ function App() {
         <main className="w-full flex justify-center flex-grow bg-white dark:bg-neutral-900">
           <div className="w-full max-w-[1440px] flex flex-col px-4 sm:px-8 lg:px-44 py-8">
             <Routes>
-              <Route path="*" element = {<NotFound/>} />
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/alanyakebab" element={<AlanyaKebab />} />
-              <Route path="/projects/portfolio" element={<Portfolio />} />
-              <Route path="/projects/datasetanalysis" element={<DataSet />} />
+              <Route path="*" element={<NotFound />} />
+              <Route
+                path="/"
+                element={
+                  <PageWrapper>
+                    <Home />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <PageWrapper>
+                    <Home />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <PageWrapper>
+                    <About />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/projects"
+                element={
+                  <PageWrapper>
+                    <Projects />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/projects/alanyakebab"
+                element={
+                  <PageWrapper>
+                    <AlanyaKebab />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/projects/portfolio"
+                element={
+                  <PageWrapper>
+                    <Portfolio />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/projects/datasetanalysis"
+                element={
+                  <PageWrapper>
+                    <DataSet />
+                  </PageWrapper>
+                }
+              />
               <Route
                 path="/projects/youtubechannels"
-                element={<YoutubeChannels />}
+                element={
+                  <PageWrapper>
+                    <YoutubeChannels />
+                  </PageWrapper>
+                }
               />
-              <Route path="/projects/plotdraw" element={<PlotDraw />} />
+              <Route
+                path="/projects/plotdraw"
+                element={
+                  <PageWrapper>
+                    <PlotDraw />
+                  </PageWrapper>
+                }
+              />
             </Routes>
           </div>
         </main>

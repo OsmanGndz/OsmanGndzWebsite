@@ -11,9 +11,9 @@ const Home = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full"
+        className="w-full transition-opacity duration-700"
       >
         <Intro />
       </motion.div>
@@ -21,9 +21,9 @@ const Home = () => {
       <motion.div
         initial={{ opacity: 0.8, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="w-full"
+        className="w-full transition-opacity duration-700"
       >
         <OtherInterestArea />
       </motion.div>
@@ -31,9 +31,9 @@ const Home = () => {
       <motion.div
         initial={{ opacity: 0.8, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        className="w-full"
+        className="w-full transition-opacity duration-700"
       >
         <SomeProjects />
       </motion.div>
@@ -41,9 +41,9 @@ const Home = () => {
       <motion.div
         initial={{ opacity: 0.8, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-        className="w-full"
+        className="w-full transition-opacity duration-700"
       >
         <EmailContact />
       </motion.div>
