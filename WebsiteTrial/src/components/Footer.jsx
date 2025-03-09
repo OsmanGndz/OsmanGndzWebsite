@@ -28,13 +28,13 @@ const Footer = () => {
     <div className="w-full flex flex-col">
       <div className="text-[18px] w-full flex flex-row">
         <div className="w-full">
-          <h1 className="text-blue-500 font-bold text-[28px]">
+          <h1 className="text-blue-500 dark:text-blue-400 font-bold text-[28px]">
             Osman
-            <span className="text-blue-400 font-semibold">Gndz</span>
+            <span className="text-blue-400 dark:text-blue-200 font-semibold">Gndz</span>
           </h1>
-          <h1 className="text-gray-600 font-semibold">{t("Computer Engineer")}</h1>
+          <h1 className="text-gray-600 dark:text-zinc-400 font-semibold">{t("Computer Engineer")}</h1>
         </div>
-        <div className="w-full flex justify-end flex-row gap-8 pt-8">
+        <div className="w-full flex justify-end flex-row gap-8 pt-8 text-black dark:text-zinc-200">
           {contacts.map((contact, index) => (
             <div
               key={index}
@@ -46,10 +46,10 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="text-center text-gray-500 pt-4">
+      <div className="text-center text-gray-500 dark:text-zinc-300 pt-4">
         <p>
           &copy; 2025. Made by{" "}
-          <span className="font-semibold text-blue-500">Osman</span>
+          <span className="font-semibold text-blue-500 dark:text-blue-400">Osman</span>
         </p>
       </div>
     </div>
