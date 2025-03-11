@@ -89,7 +89,7 @@ const Interests = [
       },
     ],
     picture:
-      "https://freedesignfile.com/upload/2019/09/Data-analysis-cartoon-illustration-vector.jpg",
+      "https://bernardmarr.com/wp-content/uploads/2022/11/The-Top-5-Data-Science-And-Analytics-Trends-In-2023.jpg",
   },
 ];
 const OtherInterestArea = () => {
